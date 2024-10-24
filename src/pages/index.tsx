@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 
 import { api } from "@/utils/api";
+import { Button } from "@/components/ui/button";
 
 export default function Home() {
   const hello = api.post.hello.useQuery({ text: "from tRPC" });
@@ -42,6 +43,10 @@ export default function Home() {
               </div>
             </Link>
           </div>
+          <div>
+            <Button>Hey There</Button>
+          </div>
+
           <p className="text-2xl text-white">
             {hello.data ? hello.data.greeting : "Loading tRPC query..."}
           </p>
