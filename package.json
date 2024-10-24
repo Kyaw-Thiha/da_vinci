@@ -12,7 +12,8 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "migrate": "npx prisma migrate dev"
   },
   "dependencies": {
     "@prisma/client": "^5.14.0",
