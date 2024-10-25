@@ -55,7 +55,10 @@
 > pathfinding takes in info about the rooms
 > hardcoding the layout of the hotel
 > send room id and duration / time
-> will change the statuf to be cleaned
->
+> will change the status to 'to be cleaned'
+> another feature for the slides : caretakers update the cleaned status of the rooms of their side which updates the
+  map in real time
+> need a demo video
+
 
 
