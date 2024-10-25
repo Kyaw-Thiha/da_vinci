@@ -1,0 +1,61 @@
+// MVP Definition
+- investors want to see that it works and what they're paying money
+  for can be implemented. Our minimum product should be sellable
+  MVP - what it's value lies in
+- 'Backend'
+    - application designs a unique pathway based on user input
+      (how long they're away for, adjacent nodes,number of caretakers available (maybe hard code the last one))
+    - able to work with unique maps and layouts, hence will be able to take in and generate pathways for different maps
+- 'Frontend'
+    - user able to properly scan the QR code
+    - input time which
+    - send data to the database (if there's time)
+    - look up their NFTs
+    - claim their NTFs (some kind of UI effect to show it has been claimed and grey it out)
+  value:
+      - optimizes the cleaning process for the caretakers reducing costs (more optimized -> more efficient),
+        # of caretakers that need to be hired (bc human resource is one of the most expensive costs for the hotel)
+        provides sustainable solutions
+      - can be integrated in any hotel
+      - hotels can themselves decide what they offer as rewards
+      - NFT reward system - cannot be abused / hacked
+      - encourage customers to give feedback to the system, ensuring that it runs
+      - not only that - motivates people to stay for longer / go back to the hotel, increasing the revenue in the long run
+
+
+
+// TODO
+
+> Time input screen
+      > integrate with the QR code functionality
+      > checkmark animation
+      > library to compute UTC time
+      > routing to send time to the backend
+      > decide where the backend is hosted / where to send information
+> Assets / Check Rewards page
+      > buttons to redeem - inputs info into database
+> integrate with backend
+> Backend page
+      > get hotel map input (future feature)
+      > get input for the # of caretakers
+      > map layout - visual
+      > generate arrows for caretakers based on the user input
+> make sure Frontend works on phone
+
+// DONE
+> Time input screen
+      > button to direct to the next page (routing)
+      > fix the header of the webpage
+      > API to enter time
+>Assets / Check Rewards page
+      > list NFTs (cards)
+
+
+> algorithm is dynamic
+> pathfinding takes in info about the rooms
+> hardcoding the layout of the hotel
+> send room id and duration / time
+> will change the statuf to be cleaned
+>
+
+
