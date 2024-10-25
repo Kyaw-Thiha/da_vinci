@@ -1,19 +1,19 @@
-import React from 'react';
-import { router } from '../routes/routes'; // Import the router instance
+import { useNavigate } from '@tanstack/react-router';
 
-const User: React.FC = () => {
+const User = () => {
+    const navigate = useNavigate();
+
     const goToAssets = () => {
-        router.navigate('/assets'); // Navigate to the Assets page
+        navigate({ to: '/assets' });
     };
 
     return (
         <div>
             <h1>User Page</h1>
             <p>Welcome to the User page!</p>
-            <button onClick={goToAssets}>Go to Assets Page</button> {/* Button to go to Assets */}
+            <button onClick={goToAssets}>Go to Assets Page</button>
         </div>
     );
 };
 
 export default User;
-

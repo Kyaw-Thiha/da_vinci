@@ -32,7 +32,6 @@
       > API to enter time
       > library to compute UTC time
       > routing to send time to the backend
-      > button to direct to the next page (routing)
 > Assets / Check Rewards page
       > list NFTs (cards)
       > buttons to redeem - inputs info into database
@@ -45,4 +44,5 @@
 > make sure Frontend works on phone
 
 // DONE
-
+> button to direct to the next page (routing)
+> fix the header of the webpage
