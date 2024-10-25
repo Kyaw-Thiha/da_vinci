@@ -38,7 +38,6 @@
 > Backend page
       > get hotel map input (future feature)
       > get input for the # of caretakers
-      > map layout - visual
       > generate arrows for caretakers based on the user input
 > make sure Frontend works on phone
 
@@ -49,6 +48,8 @@
       > API to enter time
 >Assets / Check Rewards page
       > list NFTs (cards)
+> Backend Page
+      > map layout - visual
 
 
 > algorithm is dynamic
@@ -59,6 +60,7 @@
 > another feature for the slides : caretakers update the cleaned status of the rooms of their side which updates the
   map in real time
 > need a demo video
+
 
 
 
