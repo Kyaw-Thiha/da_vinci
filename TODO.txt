@@ -33,7 +33,6 @@
       > routing to send time to the backend
       > decide where the backend is hosted / where to send information
 > Assets / Check Rewards page
-      > list NFTs (cards)
       > buttons to redeem - inputs info into database
 > integrate with backend
 > Backend page
@@ -44,6 +43,19 @@
 > make sure Frontend works on phone
 
 // DONE
-> button to direct to the next page (routing)
-> fix the header of the webpage
-> API to enter time
+> Time input screen
+      > button to direct to the next page (routing)
+      > fix the header of the webpage
+      > API to enter time
+>Assets / Check Rewards page
+      > list NFTs (cards)
+
+
+> algorithm is dynamic
+> pathfinding takes in info about the rooms
+> hardcoding the layout of the hotel
+> send room id and duration / time
+> will change the statuf to be cleaned
+>
+
+

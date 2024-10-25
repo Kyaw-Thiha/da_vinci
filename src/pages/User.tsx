@@ -11,9 +11,8 @@ const User = () => {
 
     return (
         <div>
-            <h1>User Page</h1>
-            <p>Welcome to the User page!</p>
-            <button onClick={goToAssets}>Go to Assets Page</button>
+            <p>How long will you be gone for?</p>
+            <button onClick={goToAssets}>Check my Rewards</button>
 
             <DemoContainer components={['TimePicker']}>
                 <TimePicker label="Basic time picker" />
