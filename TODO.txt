@@ -29,9 +29,9 @@
 > Time input screen
       > integrate with the QR code functionality
       > checkmark animation
-      > API to enter time
       > library to compute UTC time
       > routing to send time to the backend
+      > decide where the backend is hosted / where to send information
 > Assets / Check Rewards page
       > list NFTs (cards)
       > buttons to redeem - inputs info into database
@@ -46,3 +46,4 @@
 // DONE
 > button to direct to the next page (routing)
 > fix the header of the webpage
+> API to enter time
