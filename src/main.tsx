@@ -1,13 +1,15 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from '@tanstack/react-router'
-import { router } from './routes/routes'
-import './index.css'
-
-const queryClient = new QueryClient()
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import App from './App';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />
-  </QueryClientProvider>
-)
+  <React.StrictMode>
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <App />
+    </LocalizationProvider>
+  </React.StrictMode>
+);
+
