@@ -15,6 +15,22 @@ const Backend: React.FC = () => {
   const [draw, setDraw] = useState(false);
   const toggleDraw = () => setDraw((prevDraw) => !prevDraw);
 
+  const createNumberedMarker = (number: number, x: number, y: number) => (
+      <g key={`marker-${number}`}>
+        <circle cx={x} cy={y} r="10" fill="red" />
+        <text
+            x={x}
+            y={y}
+            textAnchor="middle"
+            dominantBaseline="central"
+            fill="white"
+            fontSize="12"
+        >
+          {number}
+        </text>
+      </g>
+  );
+
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
@@ -96,30 +112,34 @@ const Backend: React.FC = () => {
 
             {/* Path */}
             {draw &&
-              paths.map((path, index) => {
-                return (
-                  <>
-                    <motion.polyline
-                      key={index}
-                      points={path
-                        .map(
-                          ({ coords }) =>
-                            `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`,
-                        )
-                        .join(" ")}
-                      fill="none"
-                      stroke="blue"
-                      strokeWidth="2"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{
-                        duration: 4,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  </>
-                );
-              })}
+                paths.map((path, pathIndex) => (
+                    <g key={`path-${pathIndex}`}>
+                      <motion.polyline
+                          points={path
+                              .map(
+                                  ({ coords }) =>
+                                      `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`
+                              )
+                              .join(" ")}
+                          fill="none"
+                          stroke="blue"
+                          strokeWidth="2"
+                          initial={{ pathLength: 0 }}
+                          animate={{ pathLength: 1 }}
+                          transition={{
+                            duration: 4,
+                            ease: "easeInOut",
+                          }}
+                      />
+                      {path.map(({ coords }, index) =>
+                          createNumberedMarker(
+                              index + 1,
+                              coords[0] + rooms[0].width / 2,
+                              coords[1] + rooms[0].height / 2
+                          )
+                      )}
+                    </g>
+                ))}
           </motion.svg>
         </div>
       </div>

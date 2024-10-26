@@ -141,6 +141,7 @@ export const rooms: Array<Room> = [
     needClean: false,
     duration: 0,
   },
+
   {
     coords: [
       leftHallwayX +
