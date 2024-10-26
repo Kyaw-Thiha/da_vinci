@@ -4,7 +4,6 @@ import { rooms } from "@/lib/rooms";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 
 const Backend: React.FC = () => {
