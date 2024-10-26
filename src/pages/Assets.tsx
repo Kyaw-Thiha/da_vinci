@@ -55,13 +55,13 @@ const rewards = [
 
 const Assets: React.FC = () => {
   return (
-    <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">Redeem your rewards here!</h1>
-      <p className="mb-4">
+    <div className="mx-8 my-8 md:mx-32">
+      <h1 className="mb-4 text-4xl font-bold">Redeem your rewards here!</h1>
+      <p className="mb-4 text-muted-foreground">
         The more you use the QR code, the more eligible you become for rewards!
       </p>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-8 md:mt-12 md:grid-cols-2 lg:grid-cols-3">
         {rewards.map((reward) => (
           <div
             key={reward.id}
@@ -70,15 +70,15 @@ const Assets: React.FC = () => {
             <img
               src={reward.imageUrl}
               alt={reward.title}
-              className="h-48 w-full object-cover"
+              className="h-48 w-full object-cover transition-all duration-300 hover:scale-110"
             />
             <div className="p-4">
               <h2 className="mb-2 text-xl font-semibold">{reward.title}</h2>
               <p className="mb-4 text-gray-600">{reward.description}</p>
               <button
-                className={`rounded px-4 py-2 transition-colors ${
+                className={`mt-4 rounded px-4 py-2 transition-colors ${
                   reward.redeemable
-                    ? "bg-blue-500 text-white hover:bg-blue-600"
+                    ? "bg-teal-700 text-white hover:bg-teal-800 active:bg-teal-900"
                     : "cursor-not-allowed bg-gray-300 text-gray-500"
                 }`}
                 disabled={!reward.redeemable}
