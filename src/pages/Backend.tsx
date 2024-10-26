@@ -83,7 +83,9 @@ const Backend: React.FC = () => {
       className="mb-20 flex min-h-screen flex-col items-center p-4"
       ref={containerRef}
     >
-      <h1 className="mb-4 text-4xl font-bold">Hotel Floor Layout</h1>
+      <h1 className="mb-4 mt-12 text-4xl font-bold md:mb-20">
+        Hotel Floor Layout
+      </h1>
       <div className="flex w-full justify-center px-4">
         <div style={{ width: dimensions.width, height: dimensions.height }}>
           <motion.svg
