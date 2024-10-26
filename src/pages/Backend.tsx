@@ -3,8 +3,13 @@ import { Point } from "@/lib/interface";
 import { rooms } from "@/lib/rooms";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
 
 const Backend: React.FC = () => {
+  const [cleaner, setCleaner] = useState(1);
+
   const containerRef = useRef<HTMLDivElement>(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
@@ -16,19 +21,19 @@ const Backend: React.FC = () => {
   const toggleDraw = () => setDraw((prevDraw) => !prevDraw);
 
   const createNumberedMarker = (number: number, x: number, y: number) => (
-      <g key={`marker-${number}`}>
-        <circle cx={x} cy={y} r="10" fill="red" />
-        <text
-            x={x}
-            y={y}
-            textAnchor="middle"
-            dominantBaseline="central"
-            fill="white"
-            fontSize="12"
-        >
-          {number}
-        </text>
-      </g>
+    <g key={`marker-${number}`}>
+      <circle cx={x} cy={y} r="10" fill="teal" />
+      <text
+        x={x}
+        y={y}
+        textAnchor="middle"
+        dominantBaseline="central"
+        fill="white"
+        fontSize="12"
+      >
+        {number}
+      </text>
+    </g>
   );
 
   useEffect(() => {
@@ -58,6 +63,20 @@ const Backend: React.FC = () => {
       window.removeEventListener("resize", updateDimensions);
     };
   }, []);
+
+  function getPathColor(index: number) {
+    if (index == 0) {
+      return "teal";
+    } else if (index == 1) {
+      return "aqua";
+    } else if (index == 2) {
+      return "yellow";
+    } else if (index == 3) {
+      return "blue";
+    } else {
+      return "teal";
+    }
+  }
 
   return (
     <div
@@ -112,45 +131,58 @@ const Backend: React.FC = () => {
 
             {/* Path */}
             {draw &&
-                paths.map((path, pathIndex) => (
-                    <g key={`path-${pathIndex}`}>
-                      <motion.polyline
-                          points={path
-                              .map(
-                                  ({ coords }) =>
-                                      `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`
-                              )
-                              .join(" ")}
-                          fill="none"
-                          stroke="blue"
-                          strokeWidth="2"
-                          initial={{ pathLength: 0 }}
-                          animate={{ pathLength: 1 }}
-                          transition={{
-                            duration: 4,
-                            ease: "easeInOut",
-                          }}
-                      />
-                      {path.map(({ coords }, index) =>
-                          createNumberedMarker(
-                              index + 1,
-                              coords[0] + rooms[0].width / 2,
-                              coords[1] + rooms[0].height / 2
-                          )
-                      )}
-                    </g>
-                ))}
+              paths.map((path, pathIndex) => (
+                <g key={`path-${pathIndex}`}>
+                  <motion.polyline
+                    points={path
+                      .map(
+                        ({ coords }) =>
+                          `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`,
+                      )
+                      .join(" ")}
+                    fill="none"
+                    stroke={getPathColor(pathIndex)}
+                    strokeWidth="1.5"
+                    opacity={0.6}
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{
+                      duration: 4,
+                      ease: "easeInOut",
+                    }}
+                  />
+                  {path.map(({ coords }, index) =>
+                    createNumberedMarker(
+                      index + 1,
+                      coords[0] + rooms[0].width / 2,
+                      coords[1] + rooms[0].height / 2,
+                    ),
+                  )}
+                </g>
+              ))}
           </motion.svg>
         </div>
       </div>
+      <div className="mt-8 flex flex-row items-center gap-4">
+        <Label htmlFor="cleaner">Cleaner No.</Label>
+        <Input
+          id="cleaner"
+          value={cleaner}
+          onChange={(e) => {
+            setCleaner(parseInt(e.target.value));
+          }}
+          type="number"
+          placeholder="Cleaner"
+        />
+      </div>
+
       <button
         className="mt-8 rounded-lg bg-teal-700 px-4 py-2 text-xl text-white hover:bg-teal-800 active:bg-teal-900"
         onClick={() => {
-          const generatedPaths = getPath(rooms, 1);
+          const generatedPaths = getPath(rooms, cleaner);
           setPaths([...generatedPaths]);
 
           toggleDraw();
-          console.log(paths);
         }}
       >
         Get Path
