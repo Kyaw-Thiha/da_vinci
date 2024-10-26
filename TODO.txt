@@ -29,12 +29,8 @@
 > Time input screen
       > integrate with the QR code functionality
 > Assets / Check Rewards page
-      > buttons to redeem - inputs info into database
 > integrate with backend
 > Backend page
-      > get hotel map input (future feature)
-      > get input for the # of caretakers
-      > generate arrows for caretakers based on the user input
 > make sure Frontend works on phone
 
 // DONE
@@ -47,6 +43,7 @@
       > list NFTs (cards)
 > Backend Page
       > map layout - visual
+
 
 
 > algorithm is dynamic
