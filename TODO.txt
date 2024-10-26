@@ -28,9 +28,6 @@
 
 > Time input screen
       > integrate with the QR code functionality
-      > library to compute UTC time
-      > routing to send time to the backend
-      > decide where the backend is hosted / where to send information
 > Assets / Check Rewards page
       > buttons to redeem - inputs info into database
 > integrate with backend
@@ -38,7 +35,6 @@
       > get hotel map input (future feature)
       > get input for the # of caretakers
       > generate arrows for caretakers based on the user input
-      > add a third hallway + more rooms
 > make sure Frontend works on phone
 
 // DONE
