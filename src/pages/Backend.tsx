@@ -1,4 +1,5 @@
 import { getPath } from "@/lib/getPath";
+import { Point } from "@/lib/interface";
 import { rooms } from "@/lib/rooms";
 import React, { useEffect, useRef, useState } from "react";
 
@@ -8,6 +9,10 @@ const Backend: React.FC = () => {
 
   const hallwayWidth = 20;
   const leftHallwayX = 185 + (210 - 185 - hallwayWidth) / 2;
+
+  const [paths, setPaths] = useState<Array<Array<Point>>>([]);
+  const [draw, setDraw] = useState(false);
+  const toggleDraw = () => setDraw((prevDraw) => !prevDraw);
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -87,13 +92,34 @@ const Backend: React.FC = () => {
                 </text>
               </g>
             ))}
+
+            {/* Path */}
+            {draw &&
+              paths.map((path) => {
+                return (
+                  <polyline
+                    points={path
+                      .map(
+                        ({ coords }) =>
+                          `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`,
+                      )
+                      .join(" ")}
+                    fill="none"
+                    stroke="blue"
+                    strokeWidth="2"
+                  />
+                );
+              })}
           </svg>
         </div>
       </div>
       <button
         className="mt-8 rounded-lg bg-teal-700 px-4 py-2 text-xl text-white hover:bg-teal-800 active:bg-teal-900"
         onClick={() => {
-          const paths = getPath(rooms, 1);
+          const generatedPaths = getPath(rooms, 1);
+          setPaths([...generatedPaths]);
+
+          toggleDraw();
           console.log(paths);
         }}
       >
