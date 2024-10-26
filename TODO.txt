@@ -38,6 +38,7 @@
       > get hotel map input (future feature)
       > get input for the # of caretakers
       > generate arrows for caretakers based on the user input
+      > add a third hallway + more rooms
 > make sure Frontend works on phone
 
 // DONE
