@@ -9,6 +9,7 @@ const User = () => {
     const navigate = useNavigate();
     const [showScan, setShowScan] = useState(true);
     const [selectedTime, setSelectedTime] = useState<Dayjs | null>(null);
+    const [isSent, setIsSent] = useState(false);
     const roomId = 102; // Hardcoded room ID for now
 
     useEffect(() => {
@@ -26,6 +27,7 @@ const User = () => {
     const handleSend = () => {
         if (selectedTime) {
             changeRoomStatus(roomId, selectedTime.toDate());
+            setIsSent(true);
             // You might want to add some feedback to the user here,
             // like a success message or navigation to another page
         } else {
@@ -50,13 +52,14 @@ const User = () => {
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">User Dashboard</h1>
-            <p className="mb-4">How long will you be gone for?</p>
+            <p className="mb-4">How long do you expect to be gone for?</p>
             <div className="mb-4">
                 <TimePicker
                     label="Select time"
                     value={selectedTime}
                     onChange={(newValue) => setSelectedTime(newValue)}
                     views={['hours', 'minutes']}
+                    ampm={false}
                 />
             </div>
             <Button 
@@ -64,8 +67,10 @@ const User = () => {
                 color="primary" 
                 onClick={handleSend}
                 className="mb-4"
+                disabled={isSent}
+                style={{ backgroundColor: isSent ? 'grey' : undefined }}
             >
-                Send
+                {isSent ? 'Sent!' : 'Send'}
             </Button>
             <div>
                 <Button 
