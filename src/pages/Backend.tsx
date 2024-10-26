@@ -16,7 +16,7 @@ const Backend: React.FC = () => {
     {
       coords: [10, 10],
       width: leftRoomWidth,
-      height: 90,
+      height: 70,
       number: "101",
       needClean: false,
       duration: 0,
@@ -24,7 +24,7 @@ const Backend: React.FC = () => {
     {
       coords: [10 + leftRoomWidth + spaceBetweenRooms, 10],
       width: leftRoomWidth,
-      height: 90,
+      height: 70,
       number: "102",
       needClean: false,
       duration: 0,
@@ -32,7 +32,7 @@ const Backend: React.FC = () => {
     {
       coords: [10 + 2 * (leftRoomWidth + spaceBetweenRooms), 10],
       width: leftRoomWidth,
-      height: 90,
+      height: 70,
       number: "103",
       needClean: true,
       duration: 60,
@@ -41,7 +41,7 @@ const Backend: React.FC = () => {
     {
       coords: [leftHallwayX + hallwayWidth + spaceBetweenRooms, 10],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "104",
       needClean: true,
       duration: 270,
@@ -49,14 +49,14 @@ const Backend: React.FC = () => {
     {
       coords: [
         leftHallwayX +
-          hallwayWidth +
-          spaceBetweenRooms +
-          rightRoomWidth +
-          spaceBetweenRooms,
+        hallwayWidth +
+        spaceBetweenRooms +
+        rightRoomWidth +
+        spaceBetweenRooms,
         10,
       ],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "105",
       needClean: true,
       duration: 60,
@@ -64,13 +64,13 @@ const Backend: React.FC = () => {
     {
       coords: [
         leftHallwayX +
-          hallwayWidth +
-          spaceBetweenRooms +
-          2 * (rightRoomWidth + spaceBetweenRooms),
+        hallwayWidth +
+        spaceBetweenRooms +
+        2 * (rightRoomWidth + spaceBetweenRooms),
         10,
       ],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "106",
       needClean: true,
       duration: 180,
@@ -78,45 +78,47 @@ const Backend: React.FC = () => {
     {
       coords: [
         leftHallwayX +
-          hallwayWidth +
-          spaceBetweenRooms +
-          3 * (rightRoomWidth + spaceBetweenRooms),
+        hallwayWidth +
+        spaceBetweenRooms +
+        3 * (rightRoomWidth + spaceBetweenRooms),
         10,
       ],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "107",
       needClean: true,
       duration: 270,
     },
-    // Bottom left
+    // Middle left
     {
-      coords: [10, 150],
+      coords: [10, 100],
       width: leftRoomWidth,
-      height: 90,
+      height: 70,
       number: "108",
+      needClean: false,
+      duration: 0,
     },
     {
-      coords: [10 + leftRoomWidth + spaceBetweenRooms, 150],
+      coords: [10 + leftRoomWidth + spaceBetweenRooms, 100],
       width: leftRoomWidth,
-      height: 90,
+      height: 70,
       number: "109",
       needClean: true,
       duration: 60,
     },
     {
-      coords: [10 + 2 * (leftRoomWidth + spaceBetweenRooms), 150],
+      coords: [10 + 2 * (leftRoomWidth + spaceBetweenRooms), 100],
       width: leftRoomWidth,
-      height: 90,
+      height: 70,
       number: "110",
       needClean: false,
       duration: 0,
     },
-    // Bottom right
+    // Middle right
     {
-      coords: [leftHallwayX + hallwayWidth + spaceBetweenRooms, 150],
+      coords: [leftHallwayX + hallwayWidth + spaceBetweenRooms, 100],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "111",
       needClean: true,
       duration: 180,
@@ -124,14 +126,14 @@ const Backend: React.FC = () => {
     {
       coords: [
         leftHallwayX +
-          hallwayWidth +
-          spaceBetweenRooms +
-          rightRoomWidth +
-          spaceBetweenRooms,
-        150,
+        hallwayWidth +
+        spaceBetweenRooms +
+        rightRoomWidth +
+        spaceBetweenRooms,
+        100,
       ],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "112",
       needClean: false,
       duration: 0,
@@ -139,13 +141,13 @@ const Backend: React.FC = () => {
     {
       coords: [
         leftHallwayX +
-          hallwayWidth +
-          spaceBetweenRooms +
-          2 * (rightRoomWidth + spaceBetweenRooms),
-        150,
+        hallwayWidth +
+        spaceBetweenRooms +
+        2 * (rightRoomWidth + spaceBetweenRooms),
+        100,
       ],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "113",
       needClean: true,
       duration: 360,
@@ -153,19 +155,96 @@ const Backend: React.FC = () => {
     {
       coords: [
         leftHallwayX +
-          hallwayWidth +
-          spaceBetweenRooms +
-          3 * (rightRoomWidth + spaceBetweenRooms),
-        150,
+        hallwayWidth +
+        spaceBetweenRooms +
+        3 * (rightRoomWidth + spaceBetweenRooms),
+        100,
       ],
       width: rightRoomWidth,
-      height: 90,
+      height: 70,
       number: "114",
       needClean: true,
       duration: 90,
     },
+    // Bottom left
+    {
+      coords: [10, 190],
+      width: leftRoomWidth,
+      height: 70,
+      number: "115",
+      needClean: true,
+      duration: 120,
+    },
+    {
+      coords: [10 + leftRoomWidth + spaceBetweenRooms, 190],
+      width: leftRoomWidth,
+      height: 70,
+      number: "116",
+      needClean: false,
+      duration: 0,
+    },
+    {
+      coords: [10 + 2 * (leftRoomWidth + spaceBetweenRooms), 190],
+      width: leftRoomWidth,
+      height: 70,
+      number: "117",
+      needClean: true,
+      duration: 90,
+    },
+    // Bottom right
+    {
+      coords: [leftHallwayX + hallwayWidth + spaceBetweenRooms, 190],
+      width: rightRoomWidth,
+      height: 70,
+      number: "118",
+      needClean: true,
+      duration: 150,
+    },
+    {
+      coords: [
+        leftHallwayX +
+        hallwayWidth +
+        spaceBetweenRooms +
+        rightRoomWidth +
+        spaceBetweenRooms,
+        190,
+      ],
+      width: rightRoomWidth,
+      height: 70,
+      number: "119",
+      needClean: true,
+      duration: 210,
+    },
+    {
+      coords: [
+        leftHallwayX +
+        hallwayWidth +
+        spaceBetweenRooms +
+        2 * (rightRoomWidth + spaceBetweenRooms),
+        190,
+      ],
+      width: rightRoomWidth,
+      height: 70,
+      number: "120",
+      needClean: false,
+      duration: 0,
+    },
+    {
+      coords: [
+        leftHallwayX +
+        hallwayWidth +
+        spaceBetweenRooms +
+        3 * (rightRoomWidth + spaceBetweenRooms),
+        190,
+      ],
+      width: rightRoomWidth,
+      height: 70,
+      number: "121",
+      needClean: true,
+      duration: 180,
+    },
   ];
-
+  
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
@@ -188,7 +267,10 @@ const Backend: React.FC = () => {
 
     updateDimensions();
     window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
+
+    return () => {
+      window.removeEventListener("resize", updateDimensions);
+    };
   }, []);
 
   return (
@@ -201,8 +283,11 @@ const Backend: React.FC = () => {
             viewBox="0 0 475 250"
             preserveAspectRatio="xMidYMid meet"
           >
-            {/* Main Hallway */}
-            <rect x="0" y="110" width="475" height="30" fill="#f0f0f0" />
+            {/* Top Horizontal Hallway */}
+            <rect x="0" y="80" width="475" height="20" fill="#f0f0f0" />
+
+            {/* Bottom Horizontal Hallway */}
+            <rect x="0" y="170" width="475" height="20" fill="#f0f0f0" />
 
             {/* Vertical Hallway */}
             <rect
@@ -243,3 +328,5 @@ const Backend: React.FC = () => {
 };
 
 export default Backend;
+
+
