@@ -28,10 +28,8 @@ const User = () => {
     if (selectedTime) {
       changeRoomStatus(roomId.toString(), selectedTime.toDate());
       setIsSent(true);
-      // You might want to add some feedback to the user here,
-      // like a success message or navigation to another page
+      console.log("Sent status:", isSent); // Add this line for debugging
     } else {
-      // Handle case where no time is selected
       alert("Please select a time before sending.");
     }
   };
@@ -50,32 +48,53 @@ const User = () => {
   }
 
   return (
-    <div className="p-4">
-      <h1 className="mb-4 text-2xl font-bold">User Dashboard</h1>
-      <p className="mb-4">How long do you expect to be gone for?</p>
-      <div className="mb-4">
-        <TimePicker
-          label="Select time"
-          value={selectedTime}
-          onChange={(newValue) => setSelectedTime(newValue)}
-          views={["hours", "minutes"]}
-          ampm={false}
-        />
-      </div>
-      <Button
-        variant="contained"
-        color="primary"
-        onClick={handleSend}
-        className="mb-4"
-        disabled={isSent}
-        style={{ backgroundColor: isSent ? "grey" : undefined }}
-      >
-        {isSent ? "Sent!" : "Send"}
-      </Button>
-      <div>
-        <Button variant="outlined" onClick={goToAssets} className="mt-4">
-          Check my Rewards
-        </Button>
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="p-8 bg-white rounded-lg shadow-md max-w-md w-full">
+        <h1 className="mb-6 text-2xl font-bold text-center">User Dashboard</h1>
+        <p className="mb-4 text-center">How long do you expect to be gone for?</p>
+        <div className="mb-6">
+          <TimePicker
+            label="Select time"
+            value={selectedTime}
+            onChange={(newValue) => setSelectedTime(newValue)}
+            views={["hours", "minutes"]}
+            ampm={false}
+            className="w-full"
+          />
+        </div>
+        <div className="flex flex-col items-center gap-4">
+          <Button
+              key={isSent ? 'sent' : 'not-sent'}
+              variant="contained"
+              onClick={handleSend}
+              disabled={isSent}
+              style={{
+                width: '100%',
+                padding: '0.5rem 1rem',
+                backgroundColor: isSent ? 'rgb(209 213 219)' : 'rgb(13 148 136)',
+                color: isSent ? 'rgb(107 114 128)' : 'white',
+                cursor: isSent ? 'not-allowed' : 'pointer',
+                transition: 'all 0.3s',
+              }}
+          >
+            {isSent ? "Sent!" : "Send"}
+          </Button>
+          <Button
+              variant="outlined"
+              onClick={goToAssets}
+              sx={{
+                backgroundColor: 'rgb(13 148 136)',
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: 'rgb(15 118 110)',
+                  color: 'white'
+                }
+              }}
+              className="w-full rounded px-4 py-2 transition-colors border-teal-600 hover:bg-teal-700"
+          >
+            Check my Rewards
+          </Button>
+        </div>
       </div>
     </div>
   );
