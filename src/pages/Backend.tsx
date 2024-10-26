@@ -96,25 +96,28 @@ const Backend: React.FC = () => {
 
             {/* Path */}
             {draw &&
-              paths.map((path) => {
+              paths.map((path, index) => {
                 return (
-                  <motion.polyline
-                    points={path
-                      .map(
-                        ({ coords }) =>
-                          `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`,
-                      )
-                      .join(" ")}
-                    fill="none"
-                    stroke="blue"
-                    strokeWidth="2"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{
-                      duration: 2,
-                      ease: "easeInOut",
-                    }}
-                  />
+                  <>
+                    <motion.polyline
+                      key={index}
+                      points={path
+                        .map(
+                          ({ coords }) =>
+                            `${coords[0] + rooms[0].width / 2},${coords[1] + rooms[0].height / 2}`,
+                        )
+                        .join(" ")}
+                      fill="none"
+                      stroke="blue"
+                      strokeWidth="2"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{
+                        duration: 4,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  </>
                 );
               })}
           </motion.svg>
