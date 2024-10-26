@@ -50,10 +50,7 @@ const User = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-100">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-md">
-        <h1 className="mb-4 text-center text-4xl font-bold">User Dashboard</h1>
-        <p className="mb-12 text-center text-muted-foreground">
-          How long do you expect to be gone for?
-        </p>
+        <h1 className="mb-4 text-center text-4xl font-bold">How long do you expect to be gone for?</h1>
         <div className="mb-20">
           <TimePicker
             label="Select time"
