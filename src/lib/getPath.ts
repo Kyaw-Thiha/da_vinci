@@ -1,5 +1,5 @@
 import { Point, UnWeightedPoint } from "./interface";
-import { Room } from "./roomFunc";
+import { Room } from "./rooms";
 
 export function getPath(rooms: Array<Room>, numPersons: number) {
   const cleanNeededRooms = rooms.filter((room) => {
@@ -72,10 +72,10 @@ function distanceSquared(p1: Array<number>, p2: Array<number>) {
 }
 
 const durationToWeight = {
-  30: 0.9,
-  60: 0.5,
-  90: 0.3,
-  120: 0.2,
+  60: 0.9,
+  120: 0.5,
+  180: 0.3,
+  240: 0.2,
 };
 type durationToWeightKey = keyof typeof durationToWeight;
 export function normalizeToWeights(points: Array<UnWeightedPoint>) {

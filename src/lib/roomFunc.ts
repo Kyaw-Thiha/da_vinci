@@ -1,16 +1,9 @@
-export interface Room {
-  coords: [x: number, y: number];
-  width: number;
-  height: number;
-  number: string;
-  needClean: boolean;
-  duration: number;
-}
+import { rooms } from "./rooms";
 
-const rooms: Array<Room> = [];
 export const changeRoomStatus = (number: string, time: Date) => {
   const room = rooms.find((o) => o.number === number) ?? rooms[0];
+  const timeDiff = Date.now() - time.getTime();
 
   room.needClean = true;
-  room.duration = Date.now() - time.getTime();
+  room.duration = Math.floor(timeDiff / 60) * 60;
 };
