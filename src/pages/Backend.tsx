@@ -2,6 +2,7 @@ import { getPath } from "@/lib/getPath";
 import { Point } from "@/lib/interface";
 import { rooms } from "@/lib/rooms";
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const Backend: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,7 +51,7 @@ const Backend: React.FC = () => {
       <h1 className="mb-4 text-4xl font-bold">Hotel Floor Layout</h1>
       <div className="flex w-full justify-center px-4">
         <div style={{ width: dimensions.width, height: dimensions.height }}>
-          <svg
+          <motion.svg
             className="h-full w-full border border-black"
             viewBox="0 0 475 250"
             preserveAspectRatio="xMidYMid meet"
@@ -97,7 +98,7 @@ const Backend: React.FC = () => {
             {draw &&
               paths.map((path) => {
                 return (
-                  <polyline
+                  <motion.polyline
                     points={path
                       .map(
                         ({ coords }) =>
@@ -107,10 +108,16 @@ const Backend: React.FC = () => {
                     fill="none"
                     stroke="blue"
                     strokeWidth="2"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{
+                      duration: 2,
+                      ease: "easeInOut",
+                    }}
                   />
                 );
               })}
-          </svg>
+          </motion.svg>
         </div>
       </div>
       <button
