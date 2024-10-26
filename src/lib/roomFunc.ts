@@ -1,6 +1,16 @@
-export const changeRoomStatus = (roomId: number, time: Date) => {
-    // This is a placeholder function
-    // In a real application, this would likely make an API call
-    console.log(`Changing status for room ${roomId}. User will be gone until ${time}`);
-    // Add your actual implementation here
+export interface Room {
+  coords: [x: number, y: number];
+  width: number;
+  height: number;
+  number: string;
+  needClean: boolean;
+  duration: number;
+}
+
+const rooms: Array<Room> = [];
+export const changeRoomStatus = (number: string, time: Date) => {
+  const room = rooms.find((o) => o.number === number) ?? rooms[0];
+
+  room.needClean = true;
+  room.duration = Date.now() - time.getTime();
 };

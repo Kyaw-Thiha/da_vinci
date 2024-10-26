@@ -1,7 +1,12 @@
 import { Point, UnWeightedPoint } from "./interface";
+import { Room } from "./roomFunc";
 
-export function getPath(points: Array<UnWeightedPoint>, numPersons: number) {
-  const weightedPoints = normalizeToWeights(points);
+export function getPath(rooms: Array<Room>, numPersons: number) {
+  const cleanNeededRooms = rooms.filter((room) => {
+    return room.needClean;
+  });
+
+  const weightedPoints = normalizeToWeights(cleanNeededRooms);
 
   const paths = weightedNearestNeighborPath(weightedPoints, numPersons);
   return paths;
